@@ -1,4 +1,8 @@
 package com.weg.oficina.recuperacao.dto.turma;
 
-public record TurmaRequestDto() {
+public record TurmaRequestDto(
+
+        String nome,
+        int ano
+) {
 }

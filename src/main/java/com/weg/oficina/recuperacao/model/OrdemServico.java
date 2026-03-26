@@ -1,5 +1,6 @@
 package com.weg.oficina.recuperacao.model;
 
+import com.weg.oficina.recuperacao.model.enums.StatusOS;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,5 +25,9 @@ public class OrdemServico {
     @Column(nullable = false)
     private String defeitoRelatorio;
 
+    private StatusOS status;
+
+    private String materiais;
+    private String laudoTecnico;
 
 }
