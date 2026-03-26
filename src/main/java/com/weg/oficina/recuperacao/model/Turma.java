@@ -24,4 +24,8 @@ public class Turma {
     @Column(nullable = false)
     private int ano;
 
+    public Turma(String nome, int ano) {
+        this.nome = nome;
+        this.ano = ano;
+    }
 }

@@ -30,4 +30,11 @@ public class OrdemServico {
     private String materiais;
     private String laudoTecnico;
 
+    public OrdemServico(String equipamento, String defeitoRelatorio, StatusOS status, String materiais, String laudoTecnico) {
+        this.equipamento = equipamento;
+        this.defeitoRelatorio = defeitoRelatorio;
+        this.status = status;
+        this.materiais = materiais;
+        this.laudoTecnico = laudoTecnico;
+    }
 }
