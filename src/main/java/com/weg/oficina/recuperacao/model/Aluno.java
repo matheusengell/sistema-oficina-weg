@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -23,6 +25,10 @@ public class Aluno {
 
     @Column(nullable = false)
     private String email;
+
+
+    @ManyToMany(mappedBy = "alunosEscalados")
+    private List<Aluno> alunos;
 
     public Aluno(String nome, String email) {
         this.nome = nome;
