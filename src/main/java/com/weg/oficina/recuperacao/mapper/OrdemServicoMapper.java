@@ -3,7 +3,9 @@ package com.weg.oficina.recuperacao.mapper;
 import com.weg.oficina.recuperacao.dto.ordemServico.OrdemServicoRequestDto;
 import com.weg.oficina.recuperacao.dto.ordemServico.OrdemServicoResponseDto;
 import com.weg.oficina.recuperacao.model.OrdemServico;
+import org.springframework.stereotype.Component;
 
+@Component
 public class OrdemServicoMapper {
 
     public OrdemServico paraEntidade(OrdemServicoRequestDto requestDto){

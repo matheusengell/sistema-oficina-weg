@@ -3,7 +3,9 @@ package com.weg.oficina.recuperacao.mapper;
 import com.weg.oficina.recuperacao.dto.turma.TurmaRequestDto;
 import com.weg.oficina.recuperacao.dto.turma.TurmaResponseDto;
 import com.weg.oficina.recuperacao.model.Turma;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TurmaMapper {
 
     public Turma paraEntidade(TurmaRequestDto requestDto){
