@@ -50,5 +50,15 @@ public class OrdemServicoService {
                 .toList();
     }
 
+    public OrdemServicoResponseDto registrarDevolucao(Long id, OrdemServicoRequestDto requestDto){
+        OrdemServico ordemServico = ordemServicoRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Ordem Serviço não encontrada"));
+
+        ordemServico.setMateriais(requestDto.materiais());
+        ordemServico.setLaudoTecnico(requestDto.laudoTecnico());
+        ordemServico.setStatus(StatusOS.AGUARDANDO_APROVACAO);
+
+        return mapper.paraDto(ordemServicoRepository.save(ordemServico));
+    }
 
 }

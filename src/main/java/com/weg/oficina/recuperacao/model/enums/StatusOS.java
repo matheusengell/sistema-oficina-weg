@@ -1,5 +1,6 @@
 package com.weg.oficina.recuperacao.model.enums;
 
 public enum StatusOS {
-    EXECUTANDO
+    EXECUTANDO,
+    AGUARDANDO_APROVACAO
 }

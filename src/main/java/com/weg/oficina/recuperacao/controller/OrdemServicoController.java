@@ -28,4 +28,8 @@ public class OrdemServicoController {
         return service.listarTodas();
     }
 
+    @PutMapping("/{id}/executar")
+    public OrdemServicoResponseDto registrarDevolucao(@PathVariable Long id, @RequestBody OrdemServicoRequestDto requestDto){
+       return service.registrarDevolucao(id, requestDto);
+    }
 }
