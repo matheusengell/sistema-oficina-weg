@@ -45,11 +45,15 @@ public class OrdemServico {
     )
     private List<Aluno> alunosEscalados;
 
-    public OrdemServico(String equipamento, String defeitoRelatorio, StatusOS status, String materiais, String laudoTecnico) {
+    public OrdemServico(String equipamento, String defeitoRelatorio, StatusOS status, String materiais, String laudoTecnico, Professor professorResponsavel, List<Aluno> alunosEscalados) {
         this.equipamento = equipamento;
         this.defeitoRelatorio = defeitoRelatorio;
         this.status = status;
         this.materiais = materiais;
         this.laudoTecnico = laudoTecnico;
+        this.professorResponsavel = professorResponsavel;
+        this.alunosEscalados = alunosEscalados;
     }
+
+
 }
