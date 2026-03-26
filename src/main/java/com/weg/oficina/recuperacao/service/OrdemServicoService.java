@@ -42,5 +42,13 @@ public class OrdemServicoService {
         return mapper.paraDto(ordemServico);
     }
 
+    public List<OrdemServicoResponseDto> listarTodas(){
+        List<OrdemServico> ordemServicos = ordemServicoRepository.findAll();
+
+        return ordemServicos.stream()
+                .map(mapper::paraDto)
+                .toList();
+    }
+
 
 }
