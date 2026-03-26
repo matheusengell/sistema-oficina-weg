@@ -30,8 +30,19 @@ public class Aluno {
     @ManyToMany(mappedBy = "alunosEscalados")
     private List<Aluno> alunos;
 
+    @ManyToOne
+    @JoinColumn(name = "turma_id")
+    private Turma turma;
+
+
     public Aluno(String nome, String email) {
         this.nome = nome;
         this.email = email;
+    }
+
+    public Aluno(String nome, String email, Turma turma) {
+        this.nome = nome;
+        this.email = email;
+        this.turma = turma;
     }
 }

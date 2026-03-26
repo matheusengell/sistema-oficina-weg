@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -23,6 +25,10 @@ public class Turma {
 
     @Column(nullable = false)
     private int ano;
+
+
+    @OneToMany(mappedBy = "turma")
+    private List<Aluno> alunos;
 
     public Turma(String nome, int ano) {
         this.nome = nome;
