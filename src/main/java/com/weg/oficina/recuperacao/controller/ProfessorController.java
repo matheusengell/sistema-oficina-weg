@@ -16,7 +16,7 @@ public class ProfessorController {
     private final ProfessorService service;
 
     @PostMapping
-    public ProfessorResponseDto criar(@PathVariable ProfessorRequestDto requestDto){
+    public ProfessorResponseDto criar(@RequestBody ProfessorRequestDto requestDto){
         return service.criar(requestDto);
     }
 

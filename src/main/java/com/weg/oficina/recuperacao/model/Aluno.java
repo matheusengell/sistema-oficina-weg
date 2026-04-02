@@ -28,7 +28,7 @@ public class Aluno {
 
 
     @ManyToMany(mappedBy = "alunosEscalados")
-    private List<Aluno> alunos;
+    private List<OrdemServico> ordemServicos;
 
     @ManyToOne
     @JoinColumn(name = "turma_id")
