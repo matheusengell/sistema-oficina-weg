@@ -1,39 +1,68 @@
-# 🛠️ Sistema de Oficina de Recuperação - WEG
+# 🛠️ Oficina de Recuperação WEG - API
 
-Este projeto é uma API REST desenvolvida em **Java Spring Boot** para o gerenciamento de ordens de serviço (OS) em uma oficina de recuperação de equipamentos. O sistema permite o controle completo desde a sinalização do defeito até a entrega do equipamento consertado.
+![Java](https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.2-brightgreen?style=for-the-badge&logo=springboot)
+![H2 Database](https://img.shields.io/badge/H2_Database-2.2-blue?style=for-the-badge)
 
-## 🚀 Funcionalidades Principais
+Esta API REST foi desenvolvida para o gerenciamento de ordens de serviço (OS) em uma oficina de recuperação de equipamentos elétricos. O sistema automatiza o fluxo de trabalho entre professores e alunos, garantindo rastreabilidade desde a entrada do equipamento até o laudo técnico final.
 
-* **Gestão de Turmas:** Cadastro de turmas para organizar os alunos.
-* **Gestão de Alunos:** Cadastro de alunos vinculados a turmas específicas.
-* **Gestão de Professores:** Cadastro de professores responsáveis pela abertura e supervisão das ordens.
-* **Ciclo de Vida da OS:**
-    * **Abertura:** O professor registra o equipamento, o defeito e escala os alunos.
-    * **Execução:** Os alunos registram materiais utilizados e o laudo técnico do que foi feito.
-    * **Listagem:** Consulta centralizada de todas as manutenções em andamento ou concluídas.
+---
+
+## 📌 Funcionalidades Principais
+
+* **Gestão Acadêmica:** Cadastro de turmas, alunos e professores.
+* **Abertura de OS:** O professor registra o equipamento, o defeito relatado e escala a equipe de alunos.
+* **Registro de Execução:** Durante a manutenção, são registrados os materiais utilizados e o progresso.
+* **Encerramento e Laudo:** Geração de laudo técnico detalhado para finalização do conserto.
 
 ---
 
 ## 🏗️ Arquitetura e Tecnologias
 
-O projeto foi construído seguindo os princípios de **Clean Code** e a arquitetura em camadas (Controller, Service, Repository, Model, DTO):
+O projeto segue os princípios de **Clean Code** e a separação de responsabilidades em camadas (**Controller, Service, Repository, Model, DTO**):
 
-* **Java 21**
-* **Spring Boot 3**
-* **Spring Data JPA**: Persistência de dados simplificada.
-* **H2 Database**: Banco de dados persistente em arquivo local.
-* **Lombok**: Para redução de código repetitivo.
-* **DTOs (Records)**: Para transferência segura de dados entre camadas.
+* **Java 21 (LTS):** Versão estável mais recente.
+* **Spring Boot 3:** Framework base da aplicação.
+* **Spring Data JPA:** Abstração da camada de persistência.
+* **H2 Database:** Banco de dados persistido localmente na pasta `/data`.
+* **Lombok:** Redução de código repetitivo (Getters/Setters).
+* **DTOs (Records):** Transferência de dados imutável e segura.
 
 ---
 
-## 🔧 Como Rodar o Projeto
+## 🚀 Como Executar o Projeto
 
-### 1. Pré-requisitos
-* Ter o **JDK 17** ou superior instalado.
-* Uma IDE (IntelliJ, Eclipse ou VS Code).
+### Pré-requisitos
+* **JDK 21** ou superior instalado.
+* Uma IDE (IntelliJ, VS Code ou Eclipse).
 
-### 2. Configuração do Banco de Dados (H2)
-O projeto salva os dados automaticamente em uma pasta chamada `/data` na raiz do projeto. 
-* **Console do Banco:** [http://localhost:8080/h2-console](http://localhost:8080/h2-console)
-* **JDBC URL:**
+### Passo a Passo
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/seu-usuario/oficina-recuperacao-weg.git](https://github.com/seu-usuario/oficina-recuperacao-weg.git)
+    ```
+2.  **Entre na pasta:**
+    ```bash
+    cd oficina-recuperacao-weg
+    ```
+3.  **Execute a aplicação:**
+    ```bash
+    ./mvnw spring-boot:run
+    ```
+
+
+## 📖 Documentação da API (Exemplos JSON)
+
+### 1. Criar Ordem de Serviço
+**Endpoint:** `POST /ordemServico`
+
+**Request Body:**
+```json
+{
+  "equipamento": "Motor Weg W22 50cv",
+  "defeitoRelatorio": "Ruído excessivo e aquecimento no mancal dianteiro.",
+  "idProfessor": 1,
+  "idAluno": [10, 15, 22],
+  "materiais": "Aguardando diagnóstico",
+  "laudoTecnico": "Em análise"
+}
